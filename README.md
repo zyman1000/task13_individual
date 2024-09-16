@@ -39,3 +39,25 @@ WHERE y(x) is the output we want to acheive and a is the actual output
 * if the output we want is 5 then y(x) = (0,0,0,0,0,1,0,0,0,0)
 
 * To find the minimum value for the cost/objective function, we need to apply a technique called the gradient descent
+
+## code:
+
+we start with random values for biases and weights, and the network will try to get it as close to the ideal value as it can
+
+`class network(object):` -> making a class for the network
+
+'def \__init\__(self,sizes):' -> a constructor taking a list called size as an argument
+
+each element in this list represents the number of nodes in a layer
+
+`self.biases = [np.random.randn(y,1) for y in sizes[1:]`' -> this makes a matrix of random numbers for each element(layer) in the list of size (number of nodes in the layer)x(1)
+
+`self.weights = [np.random.randn(y, x) for x, y in zip(sizes[:-1], sizes[1:])]`
+
+-> zip(sizes[:-1], sizes[1:]), this part combines the 2 lists making a new list with pairs of values where the first value in the pair is from the first list, and the second value is from the second list, the result is a new list where each element is a pair of 2 elements from the sizes list
+
+-> the entire line makes a matrix of size y,x of random elements, for each pair of elements from the sizes list, what is the purpose? this makes a unique random weight for each output from the y layer that is considered an input for a node in the x layer
+
+## Honest note:
+
+I could'nt continue working in the task, I have no excuse, I was just tired
